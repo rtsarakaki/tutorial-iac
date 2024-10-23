@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
-Descriptions: Template to create an S3 bucket using IaC
+Description: Template to create an S3 bucket using IaC
 Resources:
     IACTutorialBucket:
         Type: AWS::S3::Bucket
-        Property:
+        Properties:
             BucketName: !Sub "s3-created-with-cloudformation-${AWS::Region}-${AWS::AccountId}"
