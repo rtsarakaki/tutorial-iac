@@ -1,0 +1,20 @@
+name: Validate CloudFormation Template
+
+on:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    lint-validation:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check out the repository
+              uses: actions/checkout@v4
+
+            - name: Install cfn-lint
+              run: pip install cfn-lint
+
+            - name: Run cfn-lint
+              run: cfn-lint -t ./create-s3-with-aws-cloudformation.yaml
